@@ -3,103 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ابزار تبدیل و چت مینیمال</title>
+    <title>ابزار هوش مصنوعی | کسری</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
-    <header class="glass">
-        <h1 class="title">✨ جعبه ابزار جادویی</h1>
-        <nav class="tab-header-btn">
-            <!-- <button class="tab-btn active" data-target="converter">تبدیل‌گر</button> -->
-            <!-- <button class="tab-btn" data-target="chat">چت هوش مصنوعی</button> -->
-        </nav>
-        <button id="theme-toggle" class="icon-btn">☀️</button>
-    </header>
+<header class="glass">
+    <h1 class="title">✨ جعبه ابزار جادویی</h1>
+    <button id="theme-toggle" class="icon-btn">☀️</button>
+</header>
 
-    <main>
-        <div class="card">
-            
-            <!-- تب 1: ابزار تبدیل -->
-                      <!-- تب 1: ابزار تبدیل -->
-            <div id="converter" class="tab active">
-                <h2>🔄 ابزار</h2>
-                <div class="headerBox">
+<main>
+    <div class="card">
+        <div id="converter" class="tab active">
+            <h2>🔄 ابزار</h2>
+            <div class="headerBox">
                 <div class="options-group">
-                    <label for="convert-type">نوع تبدیل:</label>
+                    <label for="convert-type">نوع عملیات:</label>
                     <select id="convert-type" class="glass-select">
                         <option value="speech_to_text">▶️ ویس به متن</option>
                         <option value="text_to_voice">🔊 متن به ویس</option>
-                        <option value="translate_en">🌍 ترجمه به انگلیسی</option>
+                        <option value="translate_en">🌍 ترجمه</option>
                         <option value="summarize">📝 خلاصه‌سازی متن</option>
                     </select>
                 </div>
-                <div class="voice-settings" id="voice-settings">
-                    <label for="voice-select" id="label">انتخاب صدا:</label>
-
-                    <select id="voice-select">
-                        <option value="alloy">Alloy</option>
-                        <option value="echo">Echo</option>
-                        <option value="fable" selected>Fable</option>
-                        <option value="onyx">Onyx</option>
-                        <option value="nova">Nova</option>
-                        <option value="shimmer">Shimmer</option>
+                <div class="language-settings" id="language-settings" style="display:none;">
+                    <label for="target-lang">زبان مقصد:</label>
+                    <select id="target-lang" class="glass-select">
+                        <option value="English">English</option>
+                        <option value="German">German</option>
+                        <option value="French">French</option>
+                        <option value="Persian">Persian (فارسی)</option>
                     </select>
                 </div>
-                </div>
-
-                <!-- باکس متنی (برای متن به ویس و ترجمه) -->
-                <textarea id="input-text" class="glass-input" placeholder="متن خودت رو اینجا وارد کن... ✍️" style="display: none;"></textarea>
-
-                
-                <!-- کنترل‌های صوتی (مثل تلگرام) -->
-                <div id="audio-controls" class="audio-controls-container">
-                    <div class="audio-buttons-wrapper">
-                        <!-- دکمه ضبط -->
-                        <button id="record-btn" class="telegram-mic-btn" title="برای ضبط کلیک کن">🎙️</button>
-                        
-                        <!-- دکمه بارگذاری فایل -->
-                        <label for="audio-upload" class="upload-btn">
-                            📎 بارگذاری فایل
-                            <input type="file" id="audio-upload" accept="audio/*" style="display: none;">
-                        </label>
-                    </div>
-                    
-                    <!-- وضعیت ضبط یا آپلود -->
-                    <div id="audio-status" class="audio-status">
-                        <span class="status-icon"></span>
-                        <span id="status-text">آماده دریافت صدای شما...</span>
-                    </div>
-                </div>
-
-                <button id="convert-btn" class="action-btn">شروع عملیات ⚡</button>
-
-                <!-- باکس نتیجه -->
-                <div id="result-box" class="result-box" style="display: none;">
-                    <h3 style="margin-top: 0; font-size: 14px; color: #a1a1aa;">نتیجه پردازش:</h3>
-                    <div id="result-text" style="margin: 0; font-size: 15px;"></div>
+                <div class="voice-settings" id="voice-settings" style="display:none;">
+                    <label for="voice-select">انتخاب صدا:</label>
+                    <select id="voice-select" class="glass-select">
+                        <option value="alloy">Alloy</option>
+                        <option value="fable">Fable</option>
+                        <option value="nova">Nova</option>
+                    </select>
                 </div>
             </div>
-
-
-            <!-- تب 2: چت -->
-            <!-- <div id="chat" class="tab">
-                <h2>🤖 چت با دستیار هوشمند</h2>
-                <div class="chat-box" id="chat-history">
-                    <div class="chat-message bot">
-                        <strong>دستیار:</strong> سلام! چه کمکی از دستم برمیاد؟
-                    </div>
-                </div>
-                <div class="chat-input">
-                    <input type="text" placeholder="پیامت رو اینجا تایپ کن..." id="message-input">
-                    <button class="action-btn" id="send-btn">ارسال 🚀</button>
-                </div>
-            </div> -->
-
+            <textarea id="input-text" class="glass-input" placeholder="متن خودت رو اینجا وارد کن..."></textarea>
+            <div id="audio-controls" class="audio-controls-container">
+                <button id="record-btn" class="telegram-mic-btn">🎙️</button>
+                <label for="audio-upload" class="upload-btn">📎 بارگذاری<input type="file" id="audio-upload" style="display:none;"></label>
+                <span id="status-text">آماده دریافت صدای شما...</span>
+            </div>
+            <button id="convert-btn" class="action-btn">شروع عملیات ⚡</button>
+            <div id="result-box" class="result-box" style="display:none;">
+                <div id="result-text"></div>
+            </div>
         </div>
-    </main>
-
-    <script src="script.js"></script>
+    </div>
+</main>
+<script src="script.js"></script>
 </body>
 </html>
